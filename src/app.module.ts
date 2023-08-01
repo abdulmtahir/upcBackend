@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from "@nestjs/config";
 import { NewsModule } from './NewsLetter/NewsLetter.module';
+import { QuickContactModule } from './quick-contact/quick-contact.module';
 
 @Module({
   imports: [
@@ -22,7 +23,7 @@ import { NewsModule } from './NewsLetter/NewsLetter.module';
         }),
         inject: [ConfigService],
       }), 
-    NewsModule
+    NewsModule, QuickContactModule
   ],
   controllers: [AppController],
   providers: [AppService],
