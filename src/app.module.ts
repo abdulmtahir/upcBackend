@@ -7,6 +7,7 @@ import { NewsModule } from './NewsLetter/NewsLetter.module';
 import { QuickContactModule } from './quick-contact/quick-contact.module';
 import { News } from './NewsLetter/entity/News.entity';
 import { QuickContact } from './quick-contact/entities/quick-contact.entity';
+import { GalleryModule } from './gallery/gallery.module';
 
 @Module({
   imports: [
@@ -25,7 +26,7 @@ import { QuickContact } from './quick-contact/entities/quick-contact.entity';
         }),
         inject: [ConfigService],
       }), 
-    NewsModule, QuickContactModule
+    NewsModule, QuickContactModule, GalleryModule
   ],
   controllers: [AppController],
   providers: [AppService],
