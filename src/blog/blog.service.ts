@@ -18,7 +18,7 @@ export class BlogService {
 
     // method to fetch all the category
     async getAllBlogCategory(){
-        const blogCategory = this.createB.find();
+        const blogCategory = await this.createB.find();
         
         try{
             return blogCategory
@@ -31,12 +31,12 @@ export class BlogService {
     // method to update Blog category
 
     async updateBlogCategory(id: number, createBlogDto: createBlogDto){
-        const blogCategoryToUpdate = this.createB.findOne({where:{id}});
-        
-        if(blogCategoryToUpdate){
-           return Object.assign(blogCategoryToUpdate, createBlogDto);
+        const blogCategoryToUpdate = await this.createB.update(id, createBlogDto);
+       
+        if(blogCategoryToUpdate.affected !=0){
+            return blogCategoryToUpdate;
         }else{
-            return Error ('cant update ' + blogCategoryToUpdate);
+            return  'cant update this row';
         }
         
     }
