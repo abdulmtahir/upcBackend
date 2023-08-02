@@ -8,6 +8,9 @@ import { QuickContactModule } from './quick-contact/quick-contact.module';
 import { News } from './NewsLetter/entity/News.entity';
 import { QuickContact } from './quick-contact/entities/quick-contact.entity';
 import { GalleryModule } from './gallery/gallery.module';
+import { EventModule } from './event/event.module';
+import { Gallery } from './gallery/entities/gallery.entity';
+import { Event } from './event/entities/event.entity';
 
 @Module({
   imports: [
@@ -21,12 +24,12 @@ import { GalleryModule } from './gallery/gallery.module';
           username: configService.get('DB_USERNAME'),
           password: configService.get('DB_PASSWORD'),
           database: configService.get('DB_NAME'),
-          entities: [News, QuickContact],
+          entities: [News, QuickContact, Gallery, Event],
           synchronize: true,
         }),
         inject: [ConfigService],
       }), 
-    NewsModule, QuickContactModule, GalleryModule
+    NewsModule, QuickContactModule, GalleryModule, EventModule
   ],
   controllers: [AppController],
   providers: [AppService],

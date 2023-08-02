@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, ParseIntPipe } from '@nestjs/common';
 import { GalleryService } from './gallery.service';
 import { CreateGalleryDto } from './dto/create-gallery.dto';
 import { UpdateGalleryDto } from './dto/update-gallery.dto';
@@ -18,17 +18,19 @@ export class GalleryController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.galleryService.findOne(+id);
+  findOne(@Param('id') galleryId: string) {
+    return this.galleryService.show(+galleryId);
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateGalleryDto: UpdateGalleryDto) {
-    return this.galleryService.update(+id, updateGalleryDto);
+  update(@Param('id') galleryId: number, @Body() updateGalleryDto: UpdateGalleryDto) {
+    return this.galleryService.update(+galleryId, updateGalleryDto);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.galleryService.remove(+id);
-  }
+  deleteUser(@Param('galleryId', ParseIntPipe) galleryId: number){
+    return this.galleryService.delete(galleryId);
+}
+  
+  
 }
