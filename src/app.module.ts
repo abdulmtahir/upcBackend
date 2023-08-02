@@ -4,10 +4,11 @@ import { AppService } from './app.service';
 import { RegisterAdminModule } from './register-admin/register-admin.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { BlogModule } from './blog/blog.module';
+import { PostBlogModule } from './post-blog/post-blog.module';
 import config from 'ormconfig';
 
 @Module({
-  imports: [RegisterAdminModule, TypeOrmModule.forRoot(config), BlogModule],
+  imports: [RegisterAdminModule, TypeOrmModule.forRoot(config), BlogModule, PostBlogModule],
   controllers: [AppController],
   providers: [AppService],
 })

@@ -40,4 +40,9 @@ export class BlogService {
         }
         
     }
+
+    async getBlogId(id:number){
+        const blogId = await this.createB.findOne({where:{id}})
+        return blogId.id;
+    }
 }
