@@ -21,15 +21,20 @@ export class GalleryService {
     return this.galleryRepository.find();
   }
 
-   update(updateGalleryDto: UpdateGalleryDto, galleryId: number){
-        return this.galleryRepository.update(galleryId, updateGalleryDto)
-    }
+  // update(updateGalleryDto: UpdateGalleryDto, galleryId: number){
+  //   return this.galleryRepository.update(galleryId, updateGalleryDto)
+  // }
 
-    show(galleryId: number){
-        return this.galleryRepository.findOne({where: {id: galleryId}});
-    }
+  update( galleryId: number, updateGalleryDto: UpdateGalleryDto){
+    return this.galleryRepository.update(galleryId, updateGalleryDto)
+  }
 
-    delete(galleryId: number){
-        return this.galleryRepository.delete(galleryId);
-    }
+
+  show(galleryId: number){
+    return this.galleryRepository.findOne({where: {id: galleryId}});
+  }
+
+  delete(galleryId: number){
+    return this.galleryRepository.delete(galleryId);
+  }
 }
