@@ -1,14 +1,26 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { RegisterAdminModule } from './register-admin/register-admin.module';
-import { TypeOrmModule } from '@nestjs/typeorm';
-import { BlogModule } from './blog/blog.module';
-import { PostBlogModule } from './post-blog/post-blog.module';
-import config from 'ormconfig';
 
 @Module({
-  imports: [RegisterAdminModule, TypeOrmModule.forRoot(config), BlogModule, PostBlogModule],
+  imports: [
+    ConfigModule.forRoot({ isGlobal: true }),
+    TypeOrmModule.forRootAsync({
+        imports: [ConfigModule],
+        useFactory: (configService: ConfigService) => ({
+          type: 'postgres',
+          host: configService.get('DB_HOST'),
+          port: +configService.get<number>('DB_PORT'),
+          username: configService.get('DB_USERNAME'),
+          password: configService.get('DB_PASSWORD'),
+          database: configService.get('DB_NAME'),
+          entities: [NewsModule],
+          synchronize: true,
+        }),
+        inject: [ConfigService],
+      }), 
+    NewsModule, QuickContactModule
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
