@@ -2,10 +2,10 @@ import { IsEmail, IsNumber, IsString } from "class-validator";
 
 export class CreateNewsDto {
     @IsString()
-    firstName: string;
+    first_name: string;
 
     @IsString()
-    lastName: string;
+    last_name: string;
 
     @IsEmail()
     email: string;

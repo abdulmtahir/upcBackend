@@ -6,10 +6,10 @@ export class News {
     id: number;
 
     @Column()
-    firstname: string;
+    first_name: string;
 
     @Column()
-    lastname: string;
+    last_name: string;
 
     @Column({unique: true})
     email: string;

@@ -1,5 +1,6 @@
 import { BeforeInsert, Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 import * as bcrypt from 'bcrypt'
+import { Role } from "src/register-admin/role.enum";
 
 
 @Entity("Admin")
@@ -22,6 +23,12 @@ export class Admin{
 
     @Column({nullable:false})
     password:string;
+
+    @Column({ type: 'enum', enum: Role, default: Role.Admin})
+    role: Role;
+
+    @Column({ nullable: false })
+    image: string;
 
     @BeforeInsert()
     async hashpassword(){

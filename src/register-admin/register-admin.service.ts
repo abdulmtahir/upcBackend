@@ -17,4 +17,8 @@ export class RegisterAdminService {
         return await this.adminRepo.save(admin);
     
     }
+    async findUser(email: string): Promise<Admin> {
+        const user = await this.adminRepo.findOne({ where: { email }});
+        return user;
+    }
 }

@@ -4,7 +4,7 @@ import { Blog } from "./postBlog.entity";
 
 
 @Entity("createBlog")
-export class createBlog{
+export class BlogEntity{
 
     @OneToMany(()=> Blog, blog => blog.categoryId, {cascade:true})
     @PrimaryGeneratedColumn()

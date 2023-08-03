@@ -1,5 +1,5 @@
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
-import { createBlog } from "./blog.entity";
+import { BlogEntity } from "./blog.entity";
 
 
 
@@ -16,7 +16,7 @@ export class Blog{
     @Column({nullable:false})
     blog:string;
 
-    @ManyToOne(()=> createBlog, user => user.id)
+    @ManyToOne(()=> BlogEntity, user => user.id)
     categoryId:number;
 
     @Column()

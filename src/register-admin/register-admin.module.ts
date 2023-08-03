@@ -7,6 +7,7 @@ import { Admin } from 'src/entities/register-admin.entity';
 @Module({
   imports: [TypeOrmModule.forFeature([Admin])],
   controllers: [RegisterAdminController],
-  providers: [RegisterAdminService]
+  providers: [RegisterAdminService],
+  exports: [RegisterAdminService]
 })
 export class RegisterAdminModule {}

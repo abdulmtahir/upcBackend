@@ -7,6 +7,6 @@ export class createBlogDto{
     category:string;
 
     @IsString()
-    discription:string;
+    description:string;
 
 }

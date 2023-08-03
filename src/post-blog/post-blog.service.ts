@@ -53,7 +53,7 @@ export class PostBlogService {
     async deletePostById(id:number){
         try{
         await this.blogRe.delete(id);
-        return ('deleted successifully');
+        return ('deleted successfully');
         
         }catch(error){
             throw new NotFoundException('cant delete this post')
