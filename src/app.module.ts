@@ -1,13 +1,6 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { TypeOrmModule } from '@nestjs/typeorm';
-import { ConfigModule, ConfigService } from "@nestjs/config";
-import { NewsModule } from './NewsLetter/NewsLetter.module';
-import { QuickContactModule } from './quick-contact/quick-contact.module';
-import { News } from './NewsLetter/entity/News.entity';
-import { QuickContact } from './quick-contact/entities/quick-contact.entity';
-import { GalleryModule } from './gallery/gallery.module';
 
 @Module({
   imports: [
