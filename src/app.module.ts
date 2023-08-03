@@ -1,10 +1,6 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { DonationModule } from './donation/donation.module';
-import { TypeOrmModule } from '@nestjs/typeorm';
-import { DonationEntity } from './donation/entity/donation.entity';
-import { ConfigModule, ConfigService } from '@nestjs/config';
 
 @Module({
   imports: [
