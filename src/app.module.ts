@@ -14,12 +14,12 @@ import { AppService } from './app.service';
           username: configService.get('DB_USERNAME'),
           password: configService.get('DB_PASSWORD'),
           database: configService.get('DB_NAME'),
-          entities: [NewsModule],
+          entities: [News, QuickContact],
           synchronize: true,
         }),
         inject: [ConfigService],
       }), 
-    NewsModule, QuickContactModule
+    NewsModule, QuickContactModule, GalleryModule
   ],
   controllers: [AppController],
   providers: [AppService],
