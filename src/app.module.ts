@@ -1,6 +1,10 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { ConfigModule, ConfigService } from '@nestjs/config';
+import { MembershipModule } from './membership/membership.module';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { MembershipEntity } from './membership/entity/membership.entity';
 
 @Module({
   imports: [
@@ -14,14 +18,13 @@ import { AppService } from './app.service';
         username: configService.get('POSTGRES_USER'),
         password: configService.get('POSTGRES_PASSWORD'),
         database: configService.get('POSTGRES_DATABASE'),
-        entities: [ 
-          DonationEntity],
+        entities: [
+          MembershipEntity],
         autoLoadEntities: true,
         synchronize: true,
       }), 
       inject: [ConfigService],
     }),
-    DonationModule],
   controllers: [AppController],
   providers: [AppService],
 })
