@@ -25,8 +25,6 @@ import { MembershipEntity } from './membership/entity/membership.entity';
       }), 
       inject: [ConfigService],
     }),
-    MembershipModule,
-  ],
   controllers: [AppController],
   providers: [AppService],
 })
