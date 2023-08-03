@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "@nestjs/common": "^9.0.0",
+    "@nestjs/config": "^3.0.0",
     "@nestjs/core": "^9.0.0",
     "@nestjs/jwt": "^10.1.0",
     "@nestjs/passport": "^10.0.0",
@@ -28,6 +29,7 @@
     "@nestjs/typeorm": "^10.0.0",
     "@types/passport": "^1.0.12",
     "@types/passport-local": "^1.0.35",
+    "@nestjs/mapped-types": "*",
     "bcrypt": "^5.1.0",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.0",

@@ -4,7 +4,25 @@ import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
 
 @Module({
-  imports: [AuthModule],
+  imports: [
+    ConfigModule.forRoot({ isGlobal: true }),
+    TypeOrmModule.forRootAsync({
+        imports: [ConfigModule],
+        useFactory: (configService: ConfigService) => ({
+          type: 'postgres',
+          host: configService.get('DB_HOST'),
+          port: +configService.get<number>('DB_PORT'),
+          username: configService.get('DB_USERNAME'),
+          password: configService.get('DB_PASSWORD'),
+          database: configService.get('DB_NAME'),
+          entities: [News, QuickContact, Gallery, Event],
+          synchronize: true,
+        }),
+        inject: [ConfigService],
+      }), 
+    NewsModule, QuickContactModule, GalleryModule, EventModule
+  ],
+
   controllers: [AppController],
   providers: [AppService],
 })
