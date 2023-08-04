@@ -1,4 +1,4 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
 
 export enum Catelog {
@@ -27,4 +27,10 @@ export class Gallery {
 
     @Column()
     eventId: number;
+
+    @CreateDateColumn({ type: 'timestamp'})
+    createdAt: Date;
+
+    @UpdateDateColumn({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP'})
+    updatedAt: Date;
 }
