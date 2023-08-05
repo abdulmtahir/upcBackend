@@ -1,4 +1,4 @@
-import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class Event {
@@ -15,10 +15,7 @@ export class Event {
     @Column()
     eventDescription: string;
 
-    @CreateDateColumn({ type: 'timestamp'})
-    created_at: Date;
-
-    @UpdateDateColumn({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP'})
-    updated_at: Date;
+    @CreateDateColumn()
+    createAt: Date;
 
 }

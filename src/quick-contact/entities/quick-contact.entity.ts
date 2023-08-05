@@ -12,7 +12,7 @@ export class QuickContact {
     @Column()
     lastName: string;
     
-    @Column( {unique: true, nullable: false} )
+    @Column()
     email: string;
 
     @Column( { nullable: false } )

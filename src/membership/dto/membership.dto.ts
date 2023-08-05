@@ -1,4 +1,4 @@
-import { IsEmail, IsEnum, IsMimeType, IsNotEmpty, IsNumber, IsOptional, IsPhoneNumber, IsPostalCode, IsString, MinLength, isNotEmpty, isPhoneNumber } from "class-validator";
+import { IsEmail, IsEnum, IsMimeType, IsNotEmpty, IsNumber, IsOptional, IsPhoneNumber, IsPostalCode, IsString, MinLength, isNotEmpty } from "class-validator";
 import { Gender } from "../gender.enum";
 
 export class MemberShipDto {
@@ -38,7 +38,7 @@ export class MemberShipDto {
       })
     email: string;
 
-    @IsPhoneNumber()
+    @IsNumber()
     @IsNotEmpty()
     @MinLength(11, {
         message: 'Title is too short',

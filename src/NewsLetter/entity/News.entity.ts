@@ -5,12 +5,12 @@ export class News {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column( {nullable: false} )
+    @Column()
     first_name: string;
 
-    @Column( { nullable: false} )
+    @Column()
     last_name: string;
 
-    @Column({unique: true, nullable: false})
+    @Column({unique: true})
     email: string;
 }

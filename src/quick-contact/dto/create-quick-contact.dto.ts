@@ -10,8 +10,4 @@ export class CreateQuickContactDto {
     @IsEmail()
     @IsNotEmpty()
     email: string;
-
-    @IsString()
-    @IsNotEmpty()
-    message: string
 }

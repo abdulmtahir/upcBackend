@@ -22,14 +22,14 @@ export class EventService {
   }
 
   update( eventId: number, updateEventDto: UpdateEventDto){
-    return this.eventRepository.update(eventId, updateEventDto)
+      return this.eventRepository.update(eventId, updateEventDto)
   }
 
   show(eventId: number){
-    return this.eventRepository.findOne({where: {id: eventId}});
+      return this.eventRepository.findOne({where: {id: eventId}});
   }
 
   delete(eventId: number){
-    return this.eventRepository.delete(eventId);
+      return this.eventRepository.delete(eventId);
   }
 }
